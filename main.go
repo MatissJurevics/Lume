@@ -84,20 +84,7 @@ func listDevices() {
 
 	for i, device := range deviceResponse.Data {
 		fmt.Printf("%d. %s\n", i+1, device.DeviceName)
-		fmt.Printf("   SKU: %s\n", device.SKU)
-		fmt.Printf("   Device ID: %s\n", device.Device)
 		fmt.Printf("   Type: %s\n", device.Type)
-		fmt.Printf("   Capabilities: %d\n", len(device.Capabilities))
-		
-		// Show first few capabilities as examples
-		for j, cap := range device.Capabilities {
-			if j < 3 { // Show only first 3 capabilities to avoid clutter
-				fmt.Printf("     - %s (%s)\n", cap.Type, cap.Instance)
-			} else if j == 3 {
-				fmt.Printf("     - ... and %d more capabilities\n", len(device.Capabilities)-3)
-				break
-			}
-		}
 		fmt.Println()
 	}
 	
